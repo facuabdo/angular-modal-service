@@ -37,7 +37,5 @@ export class AppComponent {
 
   openModalFromComponent() {
     const modalRef = this.modalService.open(ExampleComponent);
-
-    setTimeout(() => modalRef.close(), 3000);
   }
 }
