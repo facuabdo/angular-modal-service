@@ -1,13 +1,12 @@
 import { AppComponent } from "./app.component";
 import { BrowserModule } from "@angular/platform-browser";
-import { DialogService } from "./dialog/dialog.service";
+import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { ExampleComponent } from './example/example/example.component';
 
 @NgModule({
-  declarations: [AppComponent, ExampleComponent],
-  imports: [BrowserModule],
-  providers: [DialogService],
+  declarations: [AppComponent],
+  imports: [BrowserModule, CommonModule],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

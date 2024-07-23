@@ -20,16 +20,14 @@ import { ExampleComponent } from "./example/example/example.component";
     <ng-template #template
       ><h1>This is the projected content</h1></ng-template
     >`,
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
   modalService = inject(DialogService);
-  viewContainerRef = inject(ViewContainerRef);
 
   @ViewChild("template", { static: true }) templateRef!: TemplateRef<any>;
 
-  constructor() {
-    this.modalService.init(this.viewContainerRef);
-  }
+  constructor() {}
 
   openModalFromTemplate() {
     const modalRef = this.modalService.open(this.templateRef);

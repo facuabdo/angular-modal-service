@@ -9,6 +9,8 @@ export class DialogRef<R = unknown, C = unknown> {
 
   readonly closed: Observable<R | undefined> = new Subject<R | undefined>();
 
+  private _backdropRef: HTMLElement;
+
   close(result?: R): void {
     const closedSubject = this.closed as Subject<R | undefined>;
 
@@ -16,7 +18,15 @@ export class DialogRef<R = unknown, C = unknown> {
     closedSubject.complete();
     (this as { componentInstance: C | undefined }).componentInstance =
       undefined;
+
+      this._backdropRef.remove();
   }
 
-  constructor() {}
+  constructor(dialogRefOptions: DialogRefOptions) {
+    this._backdropRef = dialogRefOptions.backdropRef;
+  }
+}
+
+export interface DialogRefOptions {
+  backdropRef: HTMLElement;
 }
